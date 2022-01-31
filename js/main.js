@@ -23,13 +23,13 @@ $(document).ready(function () {
           })
         } else {
           result = `
-          <div class="card mb-3 w-100" style="max-width: 540px;">
+          <div class="card mb-3 w-100" style="max-width: 75%;">
           <div class="row g-0">
             <div class="col-md-4 item_image_container">
               <img src="${data.Poster}" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
-              <div class="card-body d-flex justify-content-around  align-items-flex-end">
+              <div class="card-body d-flex justify-content-between  align-items-flex-end">
                 <h5 class="card-title item_title">${data.Title}</h5>
                 <i class="far fa-star favorites_icon"></i>
               </div>
@@ -39,7 +39,12 @@ $(document).ready(function () {
               <button id="comment_submit">Comment</button>
               </div>
               <button id="show_comment">Add Comment</button>
-              
+              <div class="about_movie">
+                  <input type="text" id="search_about_movie" placeholder="What do you think about the movie?" min="1" maxlength="18" />
+              </div>
+              <div id="about_movie_result">
+
+              </div>
             </div>
           </div>
         </div>
@@ -98,18 +103,31 @@ $(document).ready(function () {
       </p>`).insertAfter($(this).parent().prev());
   });
 
-  // SCORE
-  /* 
-    $('body').on("click", '.up_score', function () {
-      if ($('.movie_point').val() < 10) {
-        $(this).prev().val(+$(this).prev().val() + 1);
+  $('body').on('keypress', '#search_about_movie', function (e) {
+    if (e.which == 13) {
+      let aboutArray = [];
+      let searchInputVal = $(this).val();
+      let aboutMovieResult = `
+          <div class="about_result_box">
+          <i class="fas fa-times-circle remove_about_comment result_comment_remove"></i>
+            <p class="mb-0 result_comment_remove">${searchInputVal}</p>
+          </div>
+        
+        `
+      aboutArray.push(aboutMovieResult);
+      if ($(this).parent().next().find('.about_result_box').length < 4) {
+        $(this).parent().next().append(aboutMovieResult);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: "you can't add more",
+        })
       }
-    });
+      $(this).val(" ");
+    }
+  });
 
-    $('body').on("click", '.down_score', function () {
-      if ($('.movie_point').val() > 0) {
-        $(this).next().val(+$(this).next().val() - 1);
-      }
-    }); */
-
+  $('body').on('click', '.result_comment_remove', function () {
+    $(this).parent().remove();
+  })
 })
