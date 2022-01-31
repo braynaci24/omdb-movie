@@ -1,0 +1,86 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.search_title {
+    color: #8c997c;    
+}
+#movie {
+    width: 400px;
+}
+#search_button{
+    width: 100px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #8c997c;
+    background-color: #8c997c;
+    color: #fff;
+    height: 100%;
+}
+
+.favorites_icon {
+    color: #8c997c;
+    cursor: pointer;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.item_title {
+    font-size: 18px;
+}
+
+.favorites_button {
+    float: right;
+    margin: 20px;
+    display: block;
+    background-color: #8c997c;
+    width: 10%;
+    color: #fff;
+}
+.fav_information { 
+        flex-direction: column;
+        text-align: left;
+}
+.fav_card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+}
+.favorites_body {
+    height: 400px;
+    overflow-y: auto;
+}
+.unfow_icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: #8c997c;
+}
+.fav_movie_title {
+    font-size: 18px;
+}
+#show_comment {
+    margin-left: 20px;
+    background-color: #8c997c;
+    border: 1px solid #8c997c;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 10px;
+}
+.movie_comment-container {
+    display: none;
+    flex-direction: column;
+    margin-left: 20px;
+}
+#comment_submit {
+    background-color: #8c997c;
+    border: 1px solid #8c997c;
+    color: #fff;
+}
+.show_class {
+    display: flex;
+}
+.none_class {
+    display: none;
+}
